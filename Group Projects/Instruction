@@ -1,6 +1,6 @@
 In the intro file add this:
 
-Project Selected
+Project Selected (Topic No : Name)
 Group Leader
 Group Members List
 
@@ -17,3 +17,5 @@ src/ @username2
 
 # Assigning multiple users to a file or directory
 tests/ @username3 @username4
+
+After that to Collaborate create a branch with GP-* syntax and collaborate with that. Then Merge once in a while to main
