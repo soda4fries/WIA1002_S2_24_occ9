@@ -1,0 +1,45 @@
+name: Java Code Testing Trial
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+
+      - name: Detect student directories
+        id: detect_directories
+        run: |
+          echo "::set-output name=directories::$(find . -type d -regex './Labs/s?[0-9]+/lab[0-9]+')"
+
+      - name: Copy Tester.java to student directories
+        run: |
+          for dir in ${{ steps.detect_directories.outputs.directories }}; do
+            cp "./Labs/Testers/Test_Tester.java" $dir  
+          done
+
+      - name: Compile and run Tester.java
+        run: |
+          for dir in ${{ steps.detect_directories.outputs.directories }}; do
+            cd $dir
+            javac *.java  # Compile all Java files in the directory
+            java Tester > output.txt  # Run Tester.java and save output to output.txt
+            cd ..  # Move back to the root directory for the next iteration
+          done
+
+      - name: Upload output files
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results
+          path: ${{ github.workspace }}/*/output.txt
