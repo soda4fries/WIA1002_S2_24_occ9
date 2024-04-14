@@ -34,7 +34,7 @@ jobs:
           for dir in ${{ steps.detect_directories.outputs.directories }}; do
             cd $dir
             javac *.java  # Compile all Java files in the directory
-            java Tester > output.txt  # Run Tester.java and save output to output.txt
+            java Test_Tester > output.txt  # Run Tester.java and save output to output.txt
             cd ..  # Move back to the root directory for the next iteration
           done
 
