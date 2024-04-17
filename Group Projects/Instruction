@@ -1,1 +1,21 @@
+In the intro file add this:
 
+Project Selected (Topic No : Name)
+Group Leader
+Group Members List
+
+Then Group Leaders modify the CODEOWNER File after you have been added as Collaborator to ensure other group cannot
+accidentally modify your groups project
+
+# This is a sample CODEOWNERS file
+
+# Assigning code owners for specific files or directories
+# Format: <pattern> <username>
+
+# Assigning a user to a directory and all its contents recursively
+src/ @username2
+
+# Assigning multiple users to a file or directory
+tests/ @username3 @username4
+
+After that to Collaborate create a branch with GP-* syntax and collaborate with that. Then Merge once in a while to main

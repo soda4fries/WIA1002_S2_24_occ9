@@ -1,1 +1,12 @@
+Upload you labs by your metric number
+in this Format
 
+Labs/MetricNo/Labxx/
+
+just keep the java files no need to copy whole project so it should be like this
+
+Labs/2222/Lab01/ArrayList.java
+Labs/2222/Lab01/Tester.java
+
+***Make sure u create a Tester.java that shows all the output of your code *** 
+***For the Interface, Class and File Names make sure to follow the Instruction exactly***
