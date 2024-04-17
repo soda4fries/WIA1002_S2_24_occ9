@@ -12,12 +12,12 @@ import java.util.*;
 
 public class DoublyLinkedList<E> {
  
-    public class Node<E> {
+    public static class Node<E> {
         E element;
         Node<E> next;
         Node<E> prev;
  
-        public Node(E element, Node next, Node prev) {
+        public Node(E element, Node<E> next, Node<E> prev) {
             this.element = element;
             this.next = next;
             this.prev = prev;
@@ -47,7 +47,7 @@ public class DoublyLinkedList<E> {
      
     public void addFirst(E element) {
         //create object tmp and set pointer of the new node
-        Node<E> tmp = new Node(element, head, null);
+        Node<E> tmp = new Node<>(element, head, null);
         //set head.prev of current head to be linked to the new node
         if(head != null ) {head.prev = tmp;} 
         head = tmp; //now tmp become head
@@ -60,7 +60,7 @@ public class DoublyLinkedList<E> {
     
     public void addLast(E element) {
         //create object tmp and set pointer of the previous node
-        Node<E> tmp = new Node(element, null, tail);
+        Node<E> tmp = new Node<>(element, null, tail);
         //set tail.next point to object tmp
         if(tail != null) {tail.next = tmp;}
         //now tmp become tail
@@ -144,7 +144,7 @@ public class DoublyLinkedList<E> {
                         to the temp node and also set pointer of the prev pointer
                         to the temp.prev node
                         */
-			Node<E> insert = new Node(element, temp, temp.prev);
+			Node<E> insert = new Node<>(element, temp, temp.prev);
 			//set pointer 'next' of the node temp.prev to new node insert
                         temp.prev.next = insert;
 			//set pointer 'prev' of the node temp to new node insert

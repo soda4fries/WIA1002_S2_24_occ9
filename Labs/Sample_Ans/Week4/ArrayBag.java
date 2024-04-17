@@ -12,6 +12,7 @@ public class ArrayBag<T> extends AbstractBag<T> {
         this(DEFAULT_CAPACITY);
     }
 
+    @SuppressWarnings("unchecked")
     ArrayBag(int Capacity) {
         items = (T[]) new Object[Capacity];
         top = 0;
