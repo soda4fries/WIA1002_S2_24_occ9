@@ -20,12 +20,11 @@ jobs:
 
       - name: Check file types
         run: |
-          # Check if there are any files under Labs\ that are not .java, .txt, .pdf, or files without extensions
-          find Labs/ -type f ! \( -name '*.java' -o -name '*.txt' -o -name '*.pdf' -o -type f ! -name "*.*" \)
-          # Store the exit code in a variable
-          exit_code=$?
-          # Exit with an error code if any non .java, .txt, .pdf, or files without extensions are found
-          if [ $exit_code -eq 0 ]; then
-            echo "Error: Found files other than .java, .txt, .pdf, or files without extensions under Labs\ directory."
+          # Find and list files under Labs\ that are not .java, .txt, .pdf, or files without extensions
+          invalid_files=$(find Labs/ -type f ! \( -name '*.java' -o -name '*.txt' -o -name '*.pdf' -o -type f ! -name "*.*" \))
+          # Print the names of invalid files if any
+          if [ -n "$invalid_files" ]; then
+            echo "Error: Found invalid files under Labs\ directory:"
+            echo "$invalid_files"
             exit 1
           fi
