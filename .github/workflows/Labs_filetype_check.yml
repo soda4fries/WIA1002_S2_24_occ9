@@ -1,4 +1,4 @@
-name: Check Labs Directory
+name: Check Labs Directory for extra files [Upload only source and allowed file types]
 
 on:
   push:
