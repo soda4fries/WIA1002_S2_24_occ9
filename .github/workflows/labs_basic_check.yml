@@ -1,4 +1,4 @@
-name: Valid Lab files
+name: Check Labs Directory
 
 on:
   push:
@@ -20,12 +20,12 @@ jobs:
 
       - name: Check file types
         run: |
-          # Check if there are any files under Labs\ that are not .java or .txt
-          find Labs/ -type f ! \( -name '*.java' -o -name '*.txt' \)
+          # Check if there are any files under Labs\ that are not .java, .txt, or .pdf
+          find Labs/ -type f ! \( -name '*.java' -o -name '*.txt' -o -name '*.pdf' \)
           # Store the exit code in a variable
           exit_code=$?
-          # Exit with an error code if any non .java or .txt files are found
+          # Exit with an error code if any non .java, .txt, or .pdf files are found
           if [ $exit_code -eq 0 ]; then
-            echo "Error: Found files other than .java or .txt under Labs\ directory."
+            echo "Error: Found files other than .java, .txt, or .pdf under Labs\ directory."
             exit 1
           fi
