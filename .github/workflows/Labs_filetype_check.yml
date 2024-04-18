@@ -5,14 +5,10 @@ on:
     branches:
       - main
       - master
-    paths:
-      - 'Labs/**'
   pull_request:
     branches:
       - main
       - master
-    paths:
-      - 'Labs/**'
   pull_request_review_comment:
     types: [created]
 
@@ -23,13 +19,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          path: 'Labs'  # Checkout only the Labs directory
 
       - name: Check file types
         run: |
           # Find and list files under Labs\ that are not .java, .txt, .pdf, or files without extensions
-          invalid_files=$(find . -type f -name 'Labs/*' ! \( -name '*.java' -o -name '*.txt' -o -name '*.pdf' -o -type f ! -name "*.*" \))
+          invalid_files=$(find Labs/ -type f ! \( -name '*.java' -o -name '*.txt' -o -name '*.pdf' -o -type f ! -name "*.*" \))
           # Print the names of invalid files if any
           if [ -n "$invalid_files" ]; then
             echo "Error: Found invalid files under Labs\ directory:"
