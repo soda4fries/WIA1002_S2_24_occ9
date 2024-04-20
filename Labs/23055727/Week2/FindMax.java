@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package dsweek2;
+package week2;
 
 /**
  *
@@ -29,12 +29,14 @@ public class FindMax {
     }
 }
 
+@SuppressWarnings("rawtypes")
 class Circle<V extends Comparable<V>> implements Comparable {
     V radius;
     Circle(V v){
         radius = v;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public int compareTo(Object o) {
         if (this == o)

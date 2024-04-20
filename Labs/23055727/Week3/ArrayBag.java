@@ -2,7 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-import BagInterface;
+package week3;
+
 
 /**
  *
@@ -13,10 +14,12 @@ public class ArrayBag<T> implements BagInterface<T>{
     final int  DEFAULT_CAPACITY = 25;
     int numberOfEntries;
     
+    @SuppressWarnings("unchecked")
     ArrayBag(){
         bag = (T[])new Object[DEFAULT_CAPACITY];
         numberOfEntries = 0;
     }
+    @SuppressWarnings("unchecked")
     ArrayBag(T[] bag){
         this.bag =(T[])new Object[DEFAULT_CAPACITY];
         int count = 0;
@@ -107,6 +110,7 @@ public class ArrayBag<T> implements BagInterface<T>{
 
     @Override
     public T[] toArray() {
+        @SuppressWarnings("unchecked")
         T[] array = (T[]) new Object[getCurrentSize()];
         int j = 0;
         for (int i = 0; i < DEFAULT_CAPACITY; i++)
@@ -117,7 +121,7 @@ public class ArrayBag<T> implements BagInterface<T>{
 
     @Override
     public BagInterface<T> union(BagInterface<T> bag) {
-        BagInterface<T> returnedBag = new ArrayBag();
+        BagInterface<T> returnedBag = new ArrayBag<>();
         for (int i = 0; i < DEFAULT_CAPACITY; i++)
             if (this.bag[i] != null){
                 returnedBag.add(this.bag[i]);
@@ -132,7 +136,7 @@ public class ArrayBag<T> implements BagInterface<T>{
     
     @Override
     public BagInterface<T> intersection(BagInterface<T> bag) {
-        BagInterface<T> returnedBag = new ArrayBag();
+        BagInterface<T> returnedBag = new ArrayBag<>();
         T[] copyBag = this.toArray();
         T[] otherBag = bag.toArray();
         
@@ -167,7 +171,7 @@ public class ArrayBag<T> implements BagInterface<T>{
             }
         }
         tempBag = null;
-        BagInterface<T> returnedBag = new ArrayBag(newBag);
+        BagInterface<T> returnedBag = new ArrayBag<>(newBag);
         return returnedBag;
     }
 }

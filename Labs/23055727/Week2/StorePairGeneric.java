@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package dsweek2;
+package week2;
 
 /**
  *
@@ -12,6 +12,7 @@ package dsweek2;
  */
 public class StorePairGeneric<V extends Comparable<V>> implements Comparable<StorePairGeneric<V>> {
     private V first, second;
+    @SuppressWarnings("unused")
     private V[] a;
     
     public StorePairGeneric(V first, V second) {
@@ -48,6 +49,7 @@ public class StorePairGeneric<V extends Comparable<V>> implements Comparable<Sto
         return first.equals(other.getFirst());
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public int compareTo(StorePairGeneric<V> o) {
         if (this == o)

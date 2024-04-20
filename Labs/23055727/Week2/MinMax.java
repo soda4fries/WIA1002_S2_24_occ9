@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package dsweek2;
+package week2;
 
 /**
  *
@@ -18,7 +18,7 @@ public class MinMax {
     }
     
     
-    public static <V extends Comparable> String minmax(V[] v){
+    public static <V extends Comparable<V>> String minmax(V[] v){
         V min = v[0];
         V max = v[0];
         for (V value : v){
