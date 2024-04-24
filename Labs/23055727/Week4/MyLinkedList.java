@@ -9,7 +9,7 @@ package week4;
  * @author Anas Mohammad 23055727
  */
 public class MyLinkedList<E> {
-    Node head, tail;
+    Node<E> head, tail;
     
     MyLinkedList(){};
     
@@ -39,14 +39,14 @@ public class MyLinkedList<E> {
         {   if (head == null)
                 throw new IndexOutOfBoundsException();
             int count = 0;
-            Node ptr = head;
+            Node<E> ptr = head;
             while (count < index-1){
                 if (ptr.next == null)
                     throw new IndexOutOfBoundsException();
                 count++;
                 ptr = ptr.next;
             }
-            ptr.next = new Node(e,ptr.next);
+            ptr.next = new Node<>(e,ptr.next);
         }
     }
     
@@ -63,7 +63,7 @@ public class MyLinkedList<E> {
         if (head.equals(tail)){
             head = tail = null;
         } else {
-            Node ptr = head;
+            Node<E> ptr = head;
             while (ptr.next != tail){
                 ptr = ptr.next;
             }
@@ -84,7 +84,7 @@ public class MyLinkedList<E> {
         {   if (head == null)
                 throw new IndexOutOfBoundsException();
             int count = 0;
-            Node ptr = head;
+            Node<E> ptr = head;
             while (count < index-1){
                 if (ptr.next == null)
                     throw new IndexOutOfBoundsException();
@@ -98,7 +98,7 @@ public class MyLinkedList<E> {
     }
     
     public boolean contains(E e){
-        Node ptr = head;
+        Node<E> ptr = head;
         while(ptr != null){
             if (ptr.element.equals(e))return true;
             ptr = ptr.next;
@@ -116,7 +116,7 @@ public class MyLinkedList<E> {
         {   if (head == null)
                 throw new IndexOutOfBoundsException();
             int count = 0;
-            Node ptr = head;
+            Node<E> ptr = head;
             while (count < index){
                 if (ptr.next == null)
                     throw new IndexOutOfBoundsException();
@@ -140,7 +140,7 @@ public class MyLinkedList<E> {
     }
     
     public int indexOf(E e){
-        Node ptr = head;
+        Node<E> ptr = head;
         int count = 0;
         while(ptr != null){
             if (ptr.element.equals(e))return count;
@@ -151,7 +151,7 @@ public class MyLinkedList<E> {
     }
     
     public int lastIndexOf(E e){
-        Node ptr = head;
+        Node<E> ptr = head;
         int count = 0;
         int index = -1;
         while(ptr != null){
@@ -174,7 +174,7 @@ public class MyLinkedList<E> {
         {   if (head == null)
                 throw new IndexOutOfBoundsException();
             int count = 0;
-            Node ptr = head;
+            Node<E> ptr = head;
             while (count < index){
                 if (ptr.next == null)
                     throw new IndexOutOfBoundsException();
@@ -192,7 +192,7 @@ public class MyLinkedList<E> {
         tail = null;
     }
     public void print(){
-        Node ptr = head;
+        Node<E> ptr = head;
         while (ptr != null){
             System.out.print(ptr.element.toString() + " ");
             ptr = ptr.next;
@@ -203,17 +203,17 @@ public class MyLinkedList<E> {
         print(head);
         System.out.println("");
     }
-    void print(Node n){
+    void print(Node<E> n){
         if (n == null)return;
         print(n.next);
         System.out.println(n.element.toString() + " ");
     }
     static class Node<E> {
         E element;
-        Node next;
+        Node<E> next;
         
         Node(){};
-        Node(E e, Node n){
+        Node(E e, Node<E> n){
             element = e;
             next = n;
         }

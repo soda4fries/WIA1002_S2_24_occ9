@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package dsweek2;
+package week2;
 
 /**
  *
@@ -12,8 +12,8 @@ public class Container<T> {
     private T t;
     
     public static void main(String[] args) {
-        Container<Integer> i = new Container();
-        Container<String> s = new Container();
+        Container<Integer> i = new Container<>();
+        Container<String> s = new Container<>();
         i.add(50);
         s.add("Java");
         

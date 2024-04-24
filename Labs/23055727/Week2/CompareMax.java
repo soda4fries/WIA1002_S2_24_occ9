@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package dsweek2;
+package week2;
 
 /**
  *
@@ -16,7 +16,7 @@ public class CompareMax {
     }
     
     
-    static <E extends Comparable> E maximum(E e1, E e2, E e3) {
+    static <E extends Comparable<E>> E maximum(E e1, E e2, E e3) {
         if (e1.compareTo(e2) > 0)
             if(e1.compareTo(e3) > 0)
                 return e1;
