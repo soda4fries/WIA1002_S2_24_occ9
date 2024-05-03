@@ -51,6 +51,7 @@ public class LinkedListBag<T> extends AbstractBag<T>{
         return items.contains(anEntry);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public T[] toArray() {
         return (T[]) items.toArray();

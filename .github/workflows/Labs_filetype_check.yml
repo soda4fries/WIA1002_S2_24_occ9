@@ -1,0 +1,32 @@
+name: Check Labs Directory for extra files [Upload only source and allowed file types]
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  pull_request_review_comment:
+    types: [created]
+
+jobs:
+  check_labs_directory:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Check file types
+        run: |
+          # Find and list files under Labs\ that are not .java, .txt, .pdf, or files without extensions
+          invalid_files=$(find Labs/ -type f ! \( -name '*.java' -o -name '*.txt' -o -name '*.pdf' -o -type f ! -name "*.*" \))
+          # Print the names of invalid files if any
+          if [ -n "$invalid_files" ]; then
+            echo "Error: Found invalid files under Labs\ directory:"
+            echo "$invalid_files"
+            exit 1
+          fi
